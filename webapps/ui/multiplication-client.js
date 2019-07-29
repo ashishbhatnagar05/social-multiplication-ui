@@ -1,6 +1,6 @@
 function updateMultiplication() {
     $.ajax({
-        url: "http://localhost:1002/multiplications/random"
+        url: "http://localhost:1004/api/multiplications/random"
     }).then(function(data) {
         // Cleans the form
         $("#attempt-form").find( "input[name='result-attempt']" ).val("");
@@ -15,7 +15,7 @@ function updateResults(alias) {
     var userId = -1;
     $.ajax({
         async: false,
-        url: "http://localhost:1002/results?alias=" + alias,
+        url: "http://localhost:1004/api/results?alias=" + alias,
         success: function(data) {
             $('#results-div').show();
             $('#results-body').empty();
@@ -52,7 +52,7 @@ $(document).ready(function() {
 
         // Send the data using post
         $.ajax({
-            url: 'http://localhost:1002/results',
+            url: 'http://localhost:1004/api/results',
             type: 'POST',
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
